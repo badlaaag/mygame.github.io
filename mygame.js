@@ -1,5 +1,6 @@
 let score = 0;
 let computerScore = 0;
+let tieScore = 0;
 let matchesPlayed = 0;
 let matchHistory = [];
 
@@ -21,6 +22,7 @@ function playRound(playerSelection) {
                 score++;
             } else {
                 roundResult = "It's a tie!";
+                tieScore++;
             }
             break;
         case "paper":
@@ -32,6 +34,7 @@ function playRound(playerSelection) {
                 score++;
             } else {
                 roundResult = "It's a tie!";
+                tieScore++;
             }
             break;
         case "scissors":
@@ -43,6 +46,7 @@ function playRound(playerSelection) {
                 score++;
             } else {
                 roundResult = "It's a tie!";
+                tieScore++;
             }
             break;
     }
@@ -55,6 +59,7 @@ function playRound(playerSelection) {
     document.getElementById("roundResult").textContent = roundResult;
     document.getElementById("score").textContent = score;
     document.getElementById("computerScore").textContent = computerScore;
+    document.getElementById("tieScore").textContent = tieScore;
     document.getElementById("matchesPlayed").textContent = matchesPlayed;
     let matchHistoryList = document.getElementById("matchHistory");
     let li = document.createElement("li");
@@ -90,3 +95,30 @@ function endGame() {
     let resultDiv = document.querySelector(".result");
     resultDiv.insertBefore(message, resultDiv.childNodes[0]).style.textAlign = "center";
 }
+    function resetGame() {
+    score = 0;
+    computerScore = 0;
+    tieScore = 0;
+    matchesPlayed = 0;
+    matchHistory = [];
+    document.getElementById("roundResult").textContent = "";
+    document.getElementById("score").textContent = score;
+    document.getElementById("computerScore").textContent = computerScore;
+    document.getElementById("tieScore").textContent = tieScore;
+    document.getElementById("matchesPlayed").textContent = matchesPlayed;
+    let matchHistoryList = document.getElementById("matchHistory");
+    matchHistoryList.innerHTML = "";
+    let buttons = document.querySelectorAll(".buttons button");
+    buttons.forEach((button) => {
+        button.disabled = false;
+    });
+    console.log("resetGame called");
+    let message = document.getElementById("endGameMessage");
+    message.textContent = "";
+    message.style.fontWeight = "";
+    message.style.color = "";
+    message.style.fontSize = "";
+
+}
+
+document.querySelector("#resetButton").addEventListener("click", resetGame);

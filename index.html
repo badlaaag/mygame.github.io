@@ -23,8 +23,7 @@ body{
             <div class="row">
                 <p  class="text-center pt-5 " style="font-family: 'Bangers';font-size: 30px;color: black; margin-bottom: -10px;">vin's</p>
                 <h1 class="text-center  pb-5 " style="font-family: 'Bangers';font-size: 80px;color: #2ebea7;-webkit-text-stroke-color:black; -webkit-text-stroke-width:1px;" >Jack n' Poy</h1>
-                <div class="col-md-4">
-                </div>
+                <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="buttons text-center">
                         <button id="rock" class="btn btn-danger" onclick="playRound('rock')">Rock</button>
@@ -33,18 +32,28 @@ body{
                         <p id="roundResult">Choose your move to start the game!</p>
 
                     </div>
-                    <div class="result">
+                    <div class="result" id="endGameMessage">
                     </div>
                 </div>  
                 <div class="col-md-4 bg-light shadow mb-5 p-3">
                     <div class="scoreboard d-grid fw-light">
-                        <h5>Score: <span id="score">0</span></h5>
+                        <h5>Your Score: <span id="score">0</span></h5>
                         <h5>Computer Score: <span id="computerScore">0</span></h5>
+                        <h5>Tie Counter: <span id="tieScore">0</span></h5>
                         <h5>Matches Played: <span id="matchesPlayed">0</span></h5>
                         <h5>Match History:</h5>
                         <ul id="matchHistory"></ul>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 d-grid">
+                    <button id="resetButton" class="btn btn-dark" onclick="resetGame()">Reset</button>
+                </div>  
+                <div class="col-md-4"></div>
             </div>
         </div>
     </main>
